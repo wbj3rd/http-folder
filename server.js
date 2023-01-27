@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT_DIR = process.argv[2] || process.env.HTTP_FOLDER_ROOT_DIR || __dirname
-const PORT = process.argv[3] || process.env.HTTP_FOLDER_PORT || 8080;
+const PORT = process.argv[3] || process.env.HTTP_FOLDER_PORT || 80;
 
 const httpServer = http.createServer(requestHandler);
 httpServer.listen(PORT, () => { console.log(`Serving ${ROOT_DIR} on port ${PORT}`) });
