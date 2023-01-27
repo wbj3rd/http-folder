@@ -12,7 +12,7 @@ httpServer.listen(PORT, () => { console.log(`Serving ${ROOT_DIR} on port ${PORT}
 function requestHandler(req, res) {
     const { method, url } = req;
     console.log(method, url)
-
+    console.log("START")
     if (url === '/') {
         return dir(req, res);
     }
@@ -65,6 +65,8 @@ function download(req, res) {
 
 function upload(req, res) {
     let file = path.join(ROOT_DIR, req.url);
+    console.log("UPLAOD");
+    console.log(file)
     req.pipe(fs.createWriteStream(file));
     req.on('end', () => {
         res.writeHead(200, { 'Content-Type': 'text/plain' });
