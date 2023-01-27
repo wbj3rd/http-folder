@@ -67,6 +67,7 @@ function upload(req, res) {
     let file = path.join(ROOT_DIR, req.url);
     console.log("UPLAOD");
     console.log(file)
+    console.log(req)
     req.pipe(fs.createWriteStream(file));
     req.on('end', () => {
         res.writeHead(200, { 'Content-Type': 'text/plain' });
